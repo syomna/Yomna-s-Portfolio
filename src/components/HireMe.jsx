@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { mainPx } from "../styles/style";
-import { MotionItem } from "./Motion";
+import MotionItem from "./motion/MotionItem";
 
 function HireMe() {
   const onHover = {

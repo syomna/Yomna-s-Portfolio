@@ -9,7 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaArrowUp, FaLinkedin, FaGithub } from "react-icons/fa";
-import { MotionItem } from "./Motion";
+import MotionItem from "./motion/MotionItem";
 import Upwork from "../assets/upwork.svg";
 
 function Summary() {

@@ -10,10 +10,10 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { MotionItem } from "./Motion";
+import MotionItem from "./motion/MotionItem";
 import ProgressBar from "react-animated-progress-bar";
 import { skills } from "../constants/constants";
-import { FaBootstrap, FaReact } from "react-icons/fa";
+import { FaBootstrap } from "react-icons/fa";
 import Redux from "../assets/redux.svg";
 import React from "../assets/react.svg";
 import Tailwind from "../assets/tailwind.svg";

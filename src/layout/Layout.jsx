@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import NavBar from "../components/NavBar";
 import Summary from "../components/Summary";
-import { MotionContainer } from "../components/Motion";
+import MotionContainer from "../components/Motion/MotionContainer";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import HireMe from "../components/HireMe";

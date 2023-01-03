@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { containerAnimation, itemAnimation } from "../styles/style";
+import { containerAnimation } from "../../styles/style";
 function MotionContainer({ children }) {
   return (
     <motion.div
@@ -11,8 +11,4 @@ function MotionContainer({ children }) {
     </motion.div>
   );
 }
-
-function MotionItem({ children }) {
-  return <motion.div variants={itemAnimation}>{children}</motion.div>;
-}
-export { MotionContainer, MotionItem };
+export default MotionContainer;

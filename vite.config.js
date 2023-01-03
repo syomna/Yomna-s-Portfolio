@@ -5,4 +5,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/Yomna-s-Portfolio/",
   plugins: [react()],
+  mode: "prodution",
+  build: {
+    minify: false,
+  },
 });

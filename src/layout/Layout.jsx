@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import Summary from "../components/Summary";
 import MotionContainer from "../components/Motion/MotionContainer";
 import Projects from "../components/Projects";
-// import Skills from "../components/Skills";
+import Skills from "../components/Skills";
 import HireMe from "../components/HireMe";
 import Footer from "../components/Footer";
 
@@ -15,7 +15,7 @@ function Layout() {
       <MotionContainer>
         <Summary />
         <Projects />
-        {/* <Skills /> */}
+        <Skills />
         <HireMe />
         <Footer />
       </MotionContainer>

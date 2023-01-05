@@ -1,23 +1,23 @@
 const skills = [
   {
     title: "HTML",
-    percentage: "70",
+    percentage: 70,
   },
   {
     title: "CSS",
-    percentage: "60",
+    percentage: 60,
   },
   {
     title: "JavaScript",
-    percentage: "70",
+    percentage: 70,
   },
   {
     title: "Dart",
-    percentage: "75",
+    percentage: 75,
   },
   {
     title: "SQL",
-    percentage: "55",
+    percentage: 55,
   },
   {
     title: "API Integeration",

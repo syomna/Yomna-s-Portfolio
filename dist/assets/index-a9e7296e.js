@@ -368,10 +368,10 @@ react_production_min.version = "18.2.0";
     module.exports = react_production_min;
   }
 })(react);
-const React = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
-const React$1 = /* @__PURE__ */ _mergeNamespaces({
+const React$1 = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+const React$2 = /* @__PURE__ */ _mergeNamespaces({
   __proto__: null,
-  default: React
+  default: React$1
 }, [reactExports]);
 /**
  * @license React
@@ -1544,7 +1544,7 @@ var serializeStyles = function serializeStyles2(args, registered, mergedProps) {
 var syncFallback = function syncFallback2(create) {
   return create();
 };
-var useInsertionEffect = React$1["useInsertionEffect"] ? React$1["useInsertionEffect"] : false;
+var useInsertionEffect = React$2["useInsertionEffect"] ? React$2["useInsertionEffect"] : false;
 var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect || syncFallback;
 var useInsertionEffectWithLayoutFallback = useInsertionEffect || reactExports.useLayoutEffect;
 var EmotionCacheContext = /* @__PURE__ */ reactExports.createContext(
@@ -16031,9 +16031,9 @@ function styled(component, options) {
     component,
     styledOptions
   )(styleObject);
-  const chakraComponent = React.forwardRef(function ChakraComponent(props, ref) {
+  const chakraComponent = React$1.forwardRef(function ChakraComponent(props, ref) {
     const { colorMode, forced } = useColorMode();
-    return React.createElement(Component, {
+    return React$1.createElement(Component, {
       ref,
       "data-theme": forced ? colorMode : void 0,
       ...props
@@ -16424,7 +16424,7 @@ function WarningIcon(props) {
     }
   ) });
 }
-var spin = keyframes$1({
+var spin$1 = keyframes$1({
   "0%": {
     transform: "rotate(0deg)"
   },
@@ -16451,7 +16451,7 @@ var Spinner = forwardRef((props, ref) => {
     borderWidth: thickness,
     borderBottomColor: emptyColor,
     borderLeftColor: emptyColor,
-    animation: `${spin} ${speed} linear infinite`,
+    animation: `${spin$1} ${speed} linear infinite`,
     ...styles2
   };
   return /* @__PURE__ */ jsx(
@@ -16993,7 +16993,7 @@ function useProjectionId() {
   });
 }
 const LayoutGroupContext = reactExports.createContext({});
-class VisualElementHandler extends React.Component {
+class VisualElementHandler extends React$1.Component {
   getSnapshotBeforeUpdate() {
     const { visualElement, props } = this.props;
     if (visualElement)
@@ -18703,7 +18703,7 @@ const mixComplex = (origin, target) => {
     return (p2) => `${p2 > 0 ? target : origin}`;
   }
 };
-const progress = (from2, to, value) => {
+const progress$1 = (from2, to, value) => {
   const toFromDifference = to - from2;
   return toFromDifference === 0 ? 1 : (value - from2) / toFromDifference;
 };
@@ -18756,7 +18756,7 @@ function interpolate(input, output, { clamp: isClamp = true, ease, mixer } = {})
           break;
       }
     }
-    const progressInRange = progress(input[i], input[i + 1], v2);
+    const progressInRange = progress$1(input[i], input[i + 1], v2);
     return mixers[i](progressInRange);
   };
   return isClamp ? (v2) => interpolator(clamp(input[0], input[inputLength - 1], v2)) : interpolator;
@@ -19941,9 +19941,9 @@ function calcOrigin(source, target) {
   const sourceLength = calcLength(source);
   const targetLength = calcLength(target);
   if (targetLength > sourceLength) {
-    origin = progress(target.min, target.max - sourceLength, source.min);
+    origin = progress$1(target.min, target.max - sourceLength, source.min);
   } else if (sourceLength > targetLength) {
-    origin = progress(source.min, source.max - targetLength, target.min);
+    origin = progress$1(source.min, source.max - targetLength, target.min);
   }
   return clamp(0, 1, origin);
 }
@@ -21167,7 +21167,7 @@ const correctBoxShadow = {
     return output;
   }
 };
-class MeasureLayoutWithContext extends React.Component {
+class MeasureLayoutWithContext extends React$1.Component {
   componentDidMount() {
     const { visualElement, layoutGroup, switchLayoutGroup, layoutId } = this.props;
     const { projection } = visualElement;
@@ -21245,7 +21245,7 @@ class MeasureLayoutWithContext extends React.Component {
 function MeasureLayout(props) {
   const [isPresent2, safeToRemove] = usePresence();
   const layoutGroup = reactExports.useContext(LayoutGroupContext);
-  return React.createElement(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: reactExports.useContext(SwitchLayoutGroupContext), isPresent: isPresent2, safeToRemove });
+  return React$1.createElement(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: reactExports.useContext(SwitchLayoutGroupContext), isPresent: isPresent2, safeToRemove });
 }
 const defaultScaleCorrectors = {
   borderRadius: {
@@ -21322,7 +21322,7 @@ function compress(min, max, easing) {
       return 0;
     if (p2 > max)
       return 1;
-    return easing(progress(min, max, p2));
+    return easing(progress$1(min, max, p2));
   };
 }
 function copyAxisInto(axis, originAxis) {
@@ -21472,9 +21472,9 @@ function buildProjectionTransform(delta, treeScale, latestTransform) {
     transform2 += `scale(${1 / treeScale.x}, ${1 / treeScale.y}) `;
   }
   if (latestTransform) {
-    const { rotate, rotateX, rotateY } = latestTransform;
-    if (rotate)
-      transform2 += `rotate(${rotate}deg) `;
+    const { rotate: rotate2, rotateX, rotateY } = latestTransform;
+    if (rotate2)
+      transform2 += `rotate(${rotate2}deg) `;
     if (rotateX)
       transform2 += `rotateX(${rotateX}deg) `;
     if (rotateY)
@@ -24085,11 +24085,11 @@ var Square = forwardRef(function Square2(props, ref) {
   );
 });
 Square.displayName = "Square";
-var Circle = forwardRef(function Circle2(props, ref) {
+var Circle$1 = forwardRef(function Circle2(props, ref) {
   const { size: size2, ...rest } = props;
   return /* @__PURE__ */ jsx(Square, { size: size2, ref, borderRadius: "9999px", ...rest });
 });
-Circle.displayName = "Circle";
+Circle$1.displayName = "Circle";
 var Link = forwardRef(function Link2(props, ref) {
   const styles2 = useStyleConfig("Link", props);
   const { className, isExternal, ...rest } = omitThemingProps(props);
@@ -24999,7 +24999,7 @@ function withSideEffect(reducePropsToState2, handleStateChangeOnClient2) {
         emitChange();
       };
       _proto.render = function render() {
-        return /* @__PURE__ */ React.createElement(WrappedComponent, this.props);
+        return /* @__PURE__ */ React$1.createElement(WrappedComponent, this.props);
       };
       return SideEffect2;
     }(reactExports.PureComponent);
@@ -26343,6 +26343,276 @@ var ModalCloseButton = forwardRef(
   }
 );
 ModalCloseButton.displayName = "ModalCloseButton";
+var CircularProgressLabel = chakra("div", {
+  baseStyle: {
+    fontSize: "0.24em",
+    top: "50%",
+    left: "50%",
+    width: "100%",
+    textAlign: "center",
+    position: "absolute",
+    transform: "translate(-50%, -50%)"
+  }
+});
+CircularProgressLabel.displayName = "CircularProgressLabel";
+var Circle = (props) => /* @__PURE__ */ jsx(chakra.circle, { cx: 50, cy: 50, r: 42, fill: "transparent", ...props });
+Circle.displayName = "Circle";
+function valueToPercent(value, min, max) {
+  return (value - min) * 100 / (max - min);
+}
+var spin = keyframes$1({
+  "0%": {
+    strokeDasharray: "1, 400",
+    strokeDashoffset: "0"
+  },
+  "50%": {
+    strokeDasharray: "400, 400",
+    strokeDashoffset: "-100"
+  },
+  "100%": {
+    strokeDasharray: "400, 400",
+    strokeDashoffset: "-260"
+  }
+});
+var rotate = keyframes$1({
+  "0%": {
+    transform: "rotate(0deg)"
+  },
+  "100%": {
+    transform: "rotate(360deg)"
+  }
+});
+var progress = keyframes$1({
+  "0%": { left: "-40%" },
+  "100%": { left: "100%" }
+});
+var stripe = keyframes$1({
+  from: { backgroundPosition: "1rem 0" },
+  to: { backgroundPosition: "0 0" }
+});
+function getProgressProps(options) {
+  const {
+    value = 0,
+    min,
+    max,
+    valueText,
+    getValueText,
+    isIndeterminate,
+    role = "progressbar"
+  } = options;
+  const percent2 = valueToPercent(value, min, max);
+  const getAriaValueText = () => {
+    if (value == null)
+      return void 0;
+    return typeof getValueText === "function" ? getValueText(value, percent2) : valueText;
+  };
+  return {
+    bind: {
+      "data-indeterminate": isIndeterminate ? "" : void 0,
+      "aria-valuemax": max,
+      "aria-valuemin": min,
+      "aria-valuenow": isIndeterminate ? void 0 : value,
+      "aria-valuetext": getAriaValueText(),
+      role
+    },
+    percent: percent2,
+    value
+  };
+}
+var Shape = (props) => {
+  const { size: size2, isIndeterminate, ...rest } = props;
+  return /* @__PURE__ */ jsx(
+    chakra.svg,
+    {
+      viewBox: "0 0 100 100",
+      __css: {
+        width: size2,
+        height: size2,
+        animation: isIndeterminate ? `${rotate} 2s linear infinite` : void 0
+      },
+      ...rest
+    }
+  );
+};
+Shape.displayName = "Shape";
+var CircularProgress = forwardRef(
+  (props, ref) => {
+    var _a4;
+    const {
+      size: size2 = "48px",
+      max = 100,
+      min = 0,
+      valueText,
+      getValueText,
+      value,
+      capIsRound,
+      children,
+      thickness = "10px",
+      color: color2 = "#0078d4",
+      trackColor = "#edebe9",
+      isIndeterminate,
+      ...rest
+    } = props;
+    const progress2 = getProgressProps({
+      min,
+      max,
+      value,
+      valueText,
+      getValueText,
+      isIndeterminate
+    });
+    const determinant = isIndeterminate ? void 0 : ((_a4 = progress2.percent) != null ? _a4 : 0) * 2.64;
+    const strokeDasharray = determinant == null ? void 0 : `${determinant} ${264 - determinant}`;
+    const indicatorProps = isIndeterminate ? {
+      css: { animation: `${spin} 1.5s linear infinite` }
+    } : {
+      strokeDashoffset: 66,
+      strokeDasharray,
+      transitionProperty: "stroke-dasharray, stroke",
+      transitionDuration: "0.6s",
+      transitionTimingFunction: "ease"
+    };
+    const rootStyles = {
+      display: "inline-block",
+      position: "relative",
+      verticalAlign: "middle",
+      fontSize: size2
+    };
+    return /* @__PURE__ */ jsxs(
+      chakra.div,
+      {
+        ref,
+        className: "chakra-progress",
+        ...progress2.bind,
+        ...rest,
+        __css: rootStyles,
+        children: [
+          /* @__PURE__ */ jsxs(Shape, { size: size2, isIndeterminate, children: [
+            /* @__PURE__ */ jsx(
+              Circle,
+              {
+                stroke: trackColor,
+                strokeWidth: thickness,
+                className: "chakra-progress__track"
+              }
+            ),
+            /* @__PURE__ */ jsx(
+              Circle,
+              {
+                stroke: color2,
+                strokeWidth: thickness,
+                className: "chakra-progress__indicator",
+                strokeLinecap: capIsRound ? "round" : void 0,
+                opacity: progress2.value === 0 && !isIndeterminate ? 0 : void 0,
+                ...indicatorProps
+              }
+            )
+          ] }),
+          children
+        ]
+      }
+    );
+  }
+);
+CircularProgress.displayName = "CircularProgress";
+var [ProgressStylesProvider, useProgressStyles] = createContext$1({
+  name: `ProgressStylesContext`,
+  errorMessage: `useProgressStyles returned is 'undefined'. Seems you forgot to wrap the components in "<Progress />" `
+});
+var ProgressFilledTrack = forwardRef(
+  (props, ref) => {
+    const { min, max, value, isIndeterminate, role, ...rest } = props;
+    const progress2 = getProgressProps({
+      value,
+      min,
+      max,
+      isIndeterminate,
+      role
+    });
+    const styles2 = useProgressStyles();
+    const trackStyles = {
+      height: "100%",
+      ...styles2.filledTrack
+    };
+    return /* @__PURE__ */ jsx(
+      chakra.div,
+      {
+        ref,
+        style: { width: `${progress2.percent}%`, ...rest.style },
+        ...progress2.bind,
+        ...rest,
+        __css: trackStyles
+      }
+    );
+  }
+);
+var Progress = forwardRef((props, ref) => {
+  var _a4;
+  const {
+    value,
+    min = 0,
+    max = 100,
+    hasStripe,
+    isAnimated,
+    children,
+    borderRadius: propBorderRadius,
+    isIndeterminate,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
+    "aria-valuetext": ariaValueText,
+    title,
+    role,
+    ...rest
+  } = omitThemingProps(props);
+  const styles2 = useMultiStyleConfig("Progress", props);
+  const borderRadius = propBorderRadius != null ? propBorderRadius : (_a4 = styles2.track) == null ? void 0 : _a4.borderRadius;
+  const stripeAnimation = { animation: `${stripe} 1s linear infinite` };
+  const shouldAddStripe = !isIndeterminate && hasStripe;
+  const shouldAnimateStripe = shouldAddStripe && isAnimated;
+  const css2 = {
+    ...shouldAnimateStripe && stripeAnimation,
+    ...isIndeterminate && {
+      position: "absolute",
+      willChange: "left",
+      minWidth: "50%",
+      animation: `${progress} 1s ease infinite normal none running`
+    }
+  };
+  const trackStyles = {
+    overflow: "hidden",
+    position: "relative",
+    ...styles2.track
+  };
+  return /* @__PURE__ */ jsx(
+    chakra.div,
+    {
+      ref,
+      borderRadius,
+      __css: trackStyles,
+      ...rest,
+      children: /* @__PURE__ */ jsxs(ProgressStylesProvider, { value: styles2, children: [
+        /* @__PURE__ */ jsx(
+          ProgressFilledTrack,
+          {
+            "aria-label": ariaLabel,
+            "aria-labelledby": ariaLabelledBy,
+            "aria-valuetext": ariaValueText,
+            min,
+            max,
+            value,
+            isIndeterminate,
+            css: css2,
+            borderRadius,
+            title,
+            role
+          }
+        ),
+        children
+      ] })
+    }
+  );
+});
+Progress.displayName = "Progress";
 var SelectField = forwardRef(
   function SelectField2(props, ref) {
     const { children, placeholder, className, ...rest } = props;
@@ -26565,7 +26835,7 @@ var DefaultContext = {
   style: void 0,
   attr: void 0
 };
-var IconContext = React.createContext && React.createContext(DefaultContext);
+var IconContext = React$1.createContext && React$1.createContext(DefaultContext);
 var __assign = globalThis && globalThis.__assign || function() {
   __assign = Object.assign || function(t2) {
     for (var s, i = 1, n2 = arguments.length; i < n2; i++) {
@@ -26592,14 +26862,14 @@ var __rest = globalThis && globalThis.__rest || function(s, e2) {
 };
 function Tree2Element(tree) {
   return tree && tree.map(function(node2, i) {
-    return React.createElement(node2.tag, __assign({
+    return React$1.createElement(node2.tag, __assign({
       key: i
     }, node2.attr), Tree2Element(node2.child));
   });
 }
 function GenIcon(data) {
   return function(props) {
-    return React.createElement(IconBase, __assign({
+    return React$1.createElement(IconBase, __assign({
       attr: __assign({}, data.attr)
     }, props), Tree2Element(data.child));
   };
@@ -26613,7 +26883,7 @@ function IconBase(props) {
       className = conf.className;
     if (props.className)
       className = (className ? className + " " : "") + props.className;
-    return React.createElement("svg", __assign({
+    return React$1.createElement("svg", __assign({
       stroke: "currentColor",
       fill: "currentColor",
       strokeWidth: "0"
@@ -26625,14 +26895,17 @@ function IconBase(props) {
       height: computedSize,
       width: computedSize,
       xmlns: "http://www.w3.org/2000/svg"
-    }), title && React.createElement("title", null, title), props.children);
+    }), title && React$1.createElement("title", null, title), props.children);
   };
-  return IconContext !== void 0 ? React.createElement(IconContext.Consumer, null, function(conf) {
+  return IconContext !== void 0 ? React$1.createElement(IconContext.Consumer, null, function(conf) {
     return elem(conf);
   }) : elem(DefaultContext);
 }
 function FaApple(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 384 512" }, "child": [{ "tag": "path", "attr": { "d": "M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" } }] })(props);
+}
+function FaBootstrap(props) {
+  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z" } }] })(props);
 }
 function FaGithub(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 496 512" }, "child": [{ "tag": "path", "attr": { "d": "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" } }] })(props);
@@ -27008,6 +27281,155 @@ function Projects() {
     )
   ] }) });
 }
+const skills = [
+  {
+    title: "HTML",
+    percentage: 70
+  },
+  {
+    title: "CSS",
+    percentage: 60
+  },
+  {
+    title: "JavaScript",
+    percentage: 70
+  },
+  {
+    title: "Dart",
+    percentage: 75
+  },
+  {
+    title: "SQL",
+    percentage: 55
+  },
+  {
+    title: "API Integeration",
+    percentage: "75"
+  },
+  {
+    title: "Git & GitHub",
+    percentage: "70"
+  }
+];
+const Redux = "/Yomna-s-Portfolio/assets/redux-f5f8094e.svg";
+const React = "/Yomna-s-Portfolio/assets/react-35ef61ed.svg";
+const Tailwind = "/Yomna-s-Portfolio/assets/tailwind-2a43431b.svg";
+const Flutter = "/Yomna-s-Portfolio/assets/flutter-a1683dd7.svg";
+const Firebase = "/Yomna-s-Portfolio/assets/firebase-96113108.svg";
+const SkillBar = ({ title, percentage }) => /* @__PURE__ */ jsxs(GridItem, { children: [
+  /* @__PURE__ */ jsxs(Flex, { justifyContent: "space-between", children: [
+    /* @__PURE__ */ jsx(Text, { children: title }),
+    /* @__PURE__ */ jsxs(Text, { children: [
+      percentage,
+      "%"
+    ] })
+  ] }),
+  /* @__PURE__ */ jsx(
+    Progress,
+    {
+      value: percentage,
+      width: { base: "300px", lg: "500px" },
+      height: "20px",
+      borderRadius: "10",
+      bgColor: "white",
+      colorScheme: percentage > 60 ? "green" : "orange"
+    }
+  )
+] });
+const StackSkill = ({ title, percentage, icon }) => /* @__PURE__ */ jsx(GridItem, { children: /* @__PURE__ */ jsxs(VStack, { children: [
+  /* @__PURE__ */ jsx(
+    CircularProgress,
+    {
+      value: percentage,
+      size: "100px",
+      trackColor: "white",
+      color: percentage > 60 ? "green" : "orange",
+      children: /* @__PURE__ */ jsxs(CircularProgressLabel, { fontSize: "md", children: [
+        percentage,
+        "%"
+      ] })
+    }
+  ),
+  /* @__PURE__ */ jsxs(HStack, { children: [
+    icon,
+    /* @__PURE__ */ jsx(Text, { children: title })
+  ] })
+] }) });
+function Skills() {
+  const stacks = [
+    {
+      title: "React JS",
+      percentage: 65,
+      icon: /* @__PURE__ */ jsx(Image$1, { src: React, width: "4", height: "4" })
+    },
+    {
+      title: "Redux",
+      percentage: 50,
+      icon: /* @__PURE__ */ jsx(Image$1, { src: Redux, width: "4", height: "4" })
+    },
+    {
+      title: "Bootstrap",
+      percentage: 70,
+      icon: /* @__PURE__ */ jsx(FaBootstrap, { color: "#8712FA", size: "20" })
+    },
+    {
+      title: "Tailwind",
+      percentage: 60,
+      icon: /* @__PURE__ */ jsx(Image$1, { src: Tailwind, width: "4", height: "4" })
+    },
+    {
+      title: "Flutter",
+      percentage: 80,
+      icon: /* @__PURE__ */ jsx(Image$1, { src: Flutter, width: "4", height: "4" })
+    },
+    {
+      title: "Firebase",
+      percentage: 75,
+      icon: /* @__PURE__ */ jsx(Image$1, { src: Firebase, width: "4", height: "4" })
+    }
+  ];
+  return /* @__PURE__ */ jsx(Box, { px: mainPx, id: "skills", children: /* @__PURE__ */ jsxs(MotionItem, { children: [
+    /* @__PURE__ */ jsx(Flex, { justifyContent: "center", children: /* @__PURE__ */ jsx(Heading, { children: "My Skills" }) }),
+    /* @__PURE__ */ jsx(Center, { mt: "10", children: /* @__PURE__ */ jsx(
+      Grid,
+      {
+        templateColumns: {
+          base: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)"
+        },
+        gap: "4",
+        children: skills.map((skill, index2) => /* @__PURE__ */ jsx(
+          SkillBar,
+          {
+            title: skill.title,
+            percentage: skill.percentage
+          },
+          index2
+        ))
+      }
+    ) }),
+    /* @__PURE__ */ jsx(Center, { my: "10", children: /* @__PURE__ */ jsx(Text, { fontSize: "lg", children: "Stacks" }) }),
+    /* @__PURE__ */ jsx(Center, { children: /* @__PURE__ */ jsx(
+      Grid,
+      {
+        templateColumns: {
+          base: "repeat(3, 1fr)",
+          md: "repeat(6, 1fr)"
+        },
+        gap: "4",
+        children: stacks.map((stack, index2) => /* @__PURE__ */ jsx(
+          StackSkill,
+          {
+            title: stack.title,
+            percentage: stack.percentage,
+            icon: stack.icon
+          },
+          index2
+        ))
+      }
+    ) })
+  ] }) });
+}
 function HireMe() {
   const onHover = {
     borderColor: "amber"
@@ -27122,6 +27544,7 @@ function Layout() {
     /* @__PURE__ */ jsxs(MotionContainer, { children: [
       /* @__PURE__ */ jsx(Summary, {}),
       /* @__PURE__ */ jsx(Projects, {}),
+      /* @__PURE__ */ jsx(Skills, {}),
       /* @__PURE__ */ jsx(HireMe, {}),
       /* @__PURE__ */ jsx(Footer, {})
     ] })
@@ -27132,5 +27555,5 @@ function App() {
 }
 const index = "";
 client.createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(ChakraProvider, { theme: style, children: /* @__PURE__ */ jsx(App, {}) }) })
+  /* @__PURE__ */ jsx(React$1.StrictMode, { children: /* @__PURE__ */ jsx(ChakraProvider, { theme: style, children: /* @__PURE__ */ jsx(App, {}) }) })
 );

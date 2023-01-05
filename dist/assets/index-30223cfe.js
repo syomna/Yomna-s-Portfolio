@@ -26809,7 +26809,7 @@ const style = extendTheme({
   }
 });
 const navBarGradient = [`linear(to-bl, pink, white)`];
-const mainPx = "20";
+const mainPx = { base: "4", md: "20" };
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
   visible: {
@@ -27262,7 +27262,7 @@ function ProjectItem({ project }) {
   ) });
 }
 function Projects() {
-  return /* @__PURE__ */ jsx(Box, { px: "20", id: "projects", children: /* @__PURE__ */ jsxs(MotionItem, { children: [
+  return /* @__PURE__ */ jsx(Box, { px: mainPx, id: "projects", children: /* @__PURE__ */ jsxs(MotionItem, { children: [
     /* @__PURE__ */ jsx(Center, { children: /* @__PURE__ */ jsx(Heading, { children: "My Recent Projects" }) }),
     /* @__PURE__ */ jsx(
       Grid,
@@ -27272,8 +27272,8 @@ function Projects() {
           md: "repeat(2, 1fr)",
           lg: "repeat(3, 1fr)"
         },
-        m: "6",
-        gap: "4",
+        m: "2",
+        gap: "2",
         children: projects.map((project, index2) => {
           return /* @__PURE__ */ jsx(ProjectItem, { project }, index2);
         })

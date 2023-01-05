@@ -70,7 +70,7 @@ function Summary() {
         <Flex my={"4"}>
           <ButtonGroup gap={"2"}>
             <CustomButton
-              icon={<FaLinkedin size={"30"} />}
+              icon={<FaLinkedin size={"30"} color="#0078B2" />}
               link={"https://www.linkedin.com/in/yomna-s"}
             />
             <CustomButton

@@ -1,6 +1,6 @@
 import { Box, Center, Grid, Heading } from "@chakra-ui/react";
 import MotionItem from "./motion/MotionItem";
-import { projects } from "../constants/constants";
+import projects from "../constants/projects.js";
 import ProjectItem from "./ProjectItem";
 
 function Projects() {

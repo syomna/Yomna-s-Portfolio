@@ -368,10 +368,10 @@ react_production_min.version = "18.2.0";
     module.exports = react_production_min;
   }
 })(react);
-const React$1 = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
-const React$2 = /* @__PURE__ */ _mergeNamespaces({
+const React = /* @__PURE__ */ getDefaultExportFromCjs(reactExports);
+const React$1 = /* @__PURE__ */ _mergeNamespaces({
   __proto__: null,
-  default: React$1
+  default: React
 }, [reactExports]);
 /**
  * @license React
@@ -1544,7 +1544,7 @@ var serializeStyles = function serializeStyles2(args, registered, mergedProps) {
 var syncFallback = function syncFallback2(create) {
   return create();
 };
-var useInsertionEffect = React$2["useInsertionEffect"] ? React$2["useInsertionEffect"] : false;
+var useInsertionEffect = React$1["useInsertionEffect"] ? React$1["useInsertionEffect"] : false;
 var useInsertionEffectAlwaysWithSyncFallback = useInsertionEffect || syncFallback;
 var useInsertionEffectWithLayoutFallback = useInsertionEffect || reactExports.useLayoutEffect;
 var EmotionCacheContext = /* @__PURE__ */ reactExports.createContext(
@@ -16031,9 +16031,9 @@ function styled(component, options) {
     component,
     styledOptions
   )(styleObject);
-  const chakraComponent = React$1.forwardRef(function ChakraComponent(props, ref) {
+  const chakraComponent = React.forwardRef(function ChakraComponent(props, ref) {
     const { colorMode, forced } = useColorMode();
-    return React$1.createElement(Component, {
+    return React.createElement(Component, {
       ref,
       "data-theme": forced ? colorMode : void 0,
       ...props
@@ -16993,7 +16993,7 @@ function useProjectionId() {
   });
 }
 const LayoutGroupContext = reactExports.createContext({});
-class VisualElementHandler extends React$1.Component {
+class VisualElementHandler extends React.Component {
   getSnapshotBeforeUpdate() {
     const { visualElement, props } = this.props;
     if (visualElement)
@@ -21167,7 +21167,7 @@ const correctBoxShadow = {
     return output;
   }
 };
-class MeasureLayoutWithContext extends React$1.Component {
+class MeasureLayoutWithContext extends React.Component {
   componentDidMount() {
     const { visualElement, layoutGroup, switchLayoutGroup, layoutId } = this.props;
     const { projection } = visualElement;
@@ -21245,7 +21245,7 @@ class MeasureLayoutWithContext extends React$1.Component {
 function MeasureLayout(props) {
   const [isPresent2, safeToRemove] = usePresence();
   const layoutGroup = reactExports.useContext(LayoutGroupContext);
-  return React$1.createElement(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: reactExports.useContext(SwitchLayoutGroupContext), isPresent: isPresent2, safeToRemove });
+  return React.createElement(MeasureLayoutWithContext, { ...props, layoutGroup, switchLayoutGroup: reactExports.useContext(SwitchLayoutGroupContext), isPresent: isPresent2, safeToRemove });
 }
 const defaultScaleCorrectors = {
   borderRadius: {
@@ -24999,7 +24999,7 @@ function withSideEffect(reducePropsToState2, handleStateChangeOnClient2) {
         emitChange();
       };
       _proto.render = function render() {
-        return /* @__PURE__ */ React$1.createElement(WrappedComponent, this.props);
+        return /* @__PURE__ */ React.createElement(WrappedComponent, this.props);
       };
       return SideEffect2;
     }(reactExports.PureComponent);
@@ -26565,7 +26565,7 @@ var DefaultContext = {
   style: void 0,
   attr: void 0
 };
-var IconContext = React$1.createContext && React$1.createContext(DefaultContext);
+var IconContext = React.createContext && React.createContext(DefaultContext);
 var __assign = globalThis && globalThis.__assign || function() {
   __assign = Object.assign || function(t2) {
     for (var s, i = 1, n2 = arguments.length; i < n2; i++) {
@@ -26592,14 +26592,14 @@ var __rest = globalThis && globalThis.__rest || function(s, e2) {
 };
 function Tree2Element(tree) {
   return tree && tree.map(function(node2, i) {
-    return React$1.createElement(node2.tag, __assign({
+    return React.createElement(node2.tag, __assign({
       key: i
     }, node2.attr), Tree2Element(node2.child));
   });
 }
 function GenIcon(data) {
   return function(props) {
-    return React$1.createElement(IconBase, __assign({
+    return React.createElement(IconBase, __assign({
       attr: __assign({}, data.attr)
     }, props), Tree2Element(data.child));
   };
@@ -26613,7 +26613,7 @@ function IconBase(props) {
       className = conf.className;
     if (props.className)
       className = (className ? className + " " : "") + props.className;
-    return React$1.createElement("svg", __assign({
+    return React.createElement("svg", __assign({
       stroke: "currentColor",
       fill: "currentColor",
       strokeWidth: "0"
@@ -26625,17 +26625,14 @@ function IconBase(props) {
       height: computedSize,
       width: computedSize,
       xmlns: "http://www.w3.org/2000/svg"
-    }), title && React$1.createElement("title", null, title), props.children);
+    }), title && React.createElement("title", null, title), props.children);
   };
-  return IconContext !== void 0 ? React$1.createElement(IconContext.Consumer, null, function(conf) {
+  return IconContext !== void 0 ? React.createElement(IconContext.Consumer, null, function(conf) {
     return elem(conf);
   }) : elem(DefaultContext);
 }
 function FaApple(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 384 512" }, "child": [{ "tag": "path", "attr": { "d": "M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" } }] })(props);
-}
-function FaBootstrap(props) {
-  return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z" } }] })(props);
 }
 function FaGithub(props) {
   return GenIcon({ "tag": "svg", "attr": { "viewBox": "0 0 496 512" }, "child": [{ "tag": "path", "attr": { "d": "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" } }] })(props);
@@ -26870,36 +26867,6 @@ const projects = [
     githubLink: "https://github.com/syomna/Front-end-Web-Development-WebPage"
   }
 ];
-const skills = [
-  {
-    title: "HTML",
-    percentage: "70"
-  },
-  {
-    title: "CSS",
-    percentage: "60"
-  },
-  {
-    title: "JavaScript",
-    percentage: "70"
-  },
-  {
-    title: "Dart",
-    percentage: "75"
-  },
-  {
-    title: "SQL",
-    percentage: "55"
-  },
-  {
-    title: "API Integeration",
-    percentage: "75"
-  },
-  {
-    title: "Git & GitHub",
-    percentage: "70"
-  }
-];
 const StoresButtons = ({ icon, link }) => {
   return /* @__PURE__ */ jsx(Link, { href: link, isExternal: true, children: /* @__PURE__ */ jsx(
     Button,
@@ -27041,844 +27008,6 @@ function Projects() {
     )
   ] }) });
 }
-var dist = function(t2) {
-  var e2 = {};
-  function r2(n2) {
-    if (e2[n2])
-      return e2[n2].exports;
-    var o = e2[n2] = { i: n2, l: false, exports: {} };
-    return t2[n2].call(o.exports, o, o.exports, r2), o.l = true, o.exports;
-  }
-  return r2.m = t2, r2.c = e2, r2.d = function(t3, e3, n2) {
-    r2.o(t3, e3) || Object.defineProperty(t3, e3, { enumerable: true, get: n2 });
-  }, r2.r = function(t3) {
-    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t3, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t3, "__esModule", { value: true });
-  }, r2.t = function(t3, e3) {
-    if (1 & e3 && (t3 = r2(t3)), 8 & e3)
-      return t3;
-    if (4 & e3 && "object" == typeof t3 && t3 && t3.__esModule)
-      return t3;
-    var n2 = /* @__PURE__ */ Object.create(null);
-    if (r2.r(n2), Object.defineProperty(n2, "default", { enumerable: true, value: t3 }), 2 & e3 && "string" != typeof t3)
-      for (var o in t3)
-        r2.d(n2, o, function(e4) {
-          return t3[e4];
-        }.bind(null, o));
-    return n2;
-  }, r2.n = function(t3) {
-    var e3 = t3 && t3.__esModule ? function() {
-      return t3.default;
-    } : function() {
-      return t3;
-    };
-    return r2.d(e3, "a", e3), e3;
-  }, r2.o = function(t3, e3) {
-    return Object.prototype.hasOwnProperty.call(t3, e3);
-  }, r2.p = "", r2(r2.s = 18);
-}([function(t2, e2) {
-  t2.exports = reactExports;
-}, function(t2, e2) {
-  t2.exports = function(t3) {
-    if (void 0 === t3)
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    return t3;
-  };
-}, function(t2, e2) {
-  t2.exports = function(t3, e3, r2) {
-    return e3 in t3 ? Object.defineProperty(t3, e3, { value: r2, enumerable: true, configurable: true, writable: true }) : t3[e3] = r2, t3;
-  };
-}, function(t2, e2) {
-  function r2(t3) {
-    return (r2 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(t4) {
-      return typeof t4;
-    } : function(t4) {
-      return t4 && "function" == typeof Symbol && t4.constructor === Symbol && t4 !== Symbol.prototype ? "symbol" : typeof t4;
-    })(t3);
-  }
-  function n2(e3) {
-    return "function" == typeof Symbol && "symbol" === r2(Symbol.iterator) ? t2.exports = n2 = function(t3) {
-      return r2(t3);
-    } : t2.exports = n2 = function(t3) {
-      return t3 && "function" == typeof Symbol && t3.constructor === Symbol && t3 !== Symbol.prototype ? "symbol" : r2(t3);
-    }, n2(e3);
-  }
-  t2.exports = n2;
-}, function(t2, e2, r2) {
-  t2.exports = r2(12);
-}, function(t2, e2) {
-  t2.exports = function(t3, e3) {
-    if (!(t3 instanceof e3))
-      throw new TypeError("Cannot call a class as a function");
-  };
-}, function(t2, e2) {
-  function r2(t3, e3) {
-    for (var r3 = 0; r3 < e3.length; r3++) {
-      var n2 = e3[r3];
-      n2.enumerable = n2.enumerable || false, n2.configurable = true, "value" in n2 && (n2.writable = true), Object.defineProperty(t3, n2.key, n2);
-    }
-  }
-  t2.exports = function(t3, e3, n2) {
-    return e3 && r2(t3.prototype, e3), n2 && r2(t3, n2), t3;
-  };
-}, function(t2, e2) {
-  function r2() {
-    return t2.exports = r2 = Object.assign || function(t3) {
-      for (var e3 = 1; e3 < arguments.length; e3++) {
-        var r3 = arguments[e3];
-        for (var n2 in r3)
-          Object.prototype.hasOwnProperty.call(r3, n2) && (t3[n2] = r3[n2]);
-      }
-      return t3;
-    }, r2.apply(this, arguments);
-  }
-  t2.exports = r2;
-}, function(t2, e2) {
-  function r2(t3, e3, r3, n2, o, i, a) {
-    try {
-      var c2 = t3[i](a), s = c2.value;
-    } catch (t4) {
-      return void r3(t4);
-    }
-    c2.done ? e3(s) : Promise.resolve(s).then(n2, o);
-  }
-  t2.exports = function(t3) {
-    return function() {
-      var e3 = this, n2 = arguments;
-      return new Promise(function(o, i) {
-        var a = t3.apply(e3, n2);
-        function c2(t4) {
-          r2(a, o, i, c2, s, "next", t4);
-        }
-        function s(t4) {
-          r2(a, o, i, c2, s, "throw", t4);
-        }
-        c2(void 0);
-      });
-    };
-  };
-}, function(t2, e2, r2) {
-  var n2 = r2(3), o = r2(1);
-  t2.exports = function(t3, e3) {
-    return !e3 || "object" !== n2(e3) && "function" != typeof e3 ? o(t3) : e3;
-  };
-}, function(t2, e2) {
-  function r2(e3) {
-    return t2.exports = r2 = Object.setPrototypeOf ? Object.getPrototypeOf : function(t3) {
-      return t3.__proto__ || Object.getPrototypeOf(t3);
-    }, r2(e3);
-  }
-  t2.exports = r2;
-}, function(t2, e2, r2) {
-  var n2 = r2(13);
-  t2.exports = function(t3, e3) {
-    if ("function" != typeof e3 && null !== e3)
-      throw new TypeError("Super expression must either be null or a function");
-    t3.prototype = Object.create(e3 && e3.prototype, { constructor: { value: t3, writable: true, configurable: true } }), e3 && n2(t3, e3);
-  };
-}, function(t2, e2, r2) {
-  var n2 = function(t3) {
-    var e3 = Object.prototype, r3 = e3.hasOwnProperty, n3 = "function" == typeof Symbol ? Symbol : {}, o = n3.iterator || "@@iterator", i = n3.asyncIterator || "@@asyncIterator", a = n3.toStringTag || "@@toStringTag";
-    function c2(t4, e4, r4, n4) {
-      var o2 = e4 && e4.prototype instanceof l2 ? e4 : l2, i2 = Object.create(o2.prototype), a2 = new E2(n4 || []);
-      return i2._invoke = function(t5, e5, r5) {
-        var n5 = "suspendedStart";
-        return function(o3, i3) {
-          if ("executing" === n5)
-            throw new Error("Generator is already running");
-          if ("completed" === n5) {
-            if ("throw" === o3)
-              throw i3;
-            return k2();
-          }
-          for (r5.method = o3, r5.arg = i3; ; ) {
-            var a3 = r5.delegate;
-            if (a3) {
-              var c3 = b2(a3, r5);
-              if (c3) {
-                if (c3 === u2)
-                  continue;
-                return c3;
-              }
-            }
-            if ("next" === r5.method)
-              r5.sent = r5._sent = r5.arg;
-            else if ("throw" === r5.method) {
-              if ("suspendedStart" === n5)
-                throw n5 = "completed", r5.arg;
-              r5.dispatchException(r5.arg);
-            } else
-              "return" === r5.method && r5.abrupt("return", r5.arg);
-            n5 = "executing";
-            var l3 = s(t5, e5, r5);
-            if ("normal" === l3.type) {
-              if (n5 = r5.done ? "completed" : "suspendedYield", l3.arg === u2)
-                continue;
-              return { value: l3.arg, done: r5.done };
-            }
-            "throw" === l3.type && (n5 = "completed", r5.method = "throw", r5.arg = l3.arg);
-          }
-        };
-      }(t4, r4, a2), i2;
-    }
-    function s(t4, e4, r4) {
-      try {
-        return { type: "normal", arg: t4.call(e4, r4) };
-      } catch (t5) {
-        return { type: "throw", arg: t5 };
-      }
-    }
-    t3.wrap = c2;
-    var u2 = {};
-    function l2() {
-    }
-    function f2() {
-    }
-    function p2() {
-    }
-    var h2 = {};
-    h2[o] = function() {
-      return this;
-    };
-    var d2 = Object.getPrototypeOf, v2 = d2 && d2(d2(O2([])));
-    v2 && v2 !== e3 && r3.call(v2, o) && (h2 = v2);
-    var y2 = p2.prototype = l2.prototype = Object.create(h2);
-    function m2(t4) {
-      ["next", "throw", "return"].forEach(function(e4) {
-        t4[e4] = function(t5) {
-          return this._invoke(e4, t5);
-        };
-      });
-    }
-    function g2(t4) {
-      var e4;
-      this._invoke = function(n4, o2) {
-        function i2() {
-          return new Promise(function(e5, i3) {
-            !function e6(n5, o3, i4, a2) {
-              var c3 = s(t4[n5], t4, o3);
-              if ("throw" !== c3.type) {
-                var u3 = c3.arg, l3 = u3.value;
-                return l3 && "object" == typeof l3 && r3.call(l3, "__await") ? Promise.resolve(l3.__await).then(function(t5) {
-                  e6("next", t5, i4, a2);
-                }, function(t5) {
-                  e6("throw", t5, i4, a2);
-                }) : Promise.resolve(l3).then(function(t5) {
-                  u3.value = t5, i4(u3);
-                }, function(t5) {
-                  return e6("throw", t5, i4, a2);
-                });
-              }
-              a2(c3.arg);
-            }(n4, o2, e5, i3);
-          });
-        }
-        return e4 = e4 ? e4.then(i2, i2) : i2();
-      };
-    }
-    function b2(t4, e4) {
-      var r4 = t4.iterator[e4.method];
-      if (void 0 === r4) {
-        if (e4.delegate = null, "throw" === e4.method) {
-          if (t4.iterator.return && (e4.method = "return", e4.arg = void 0, b2(t4, e4), "throw" === e4.method))
-            return u2;
-          e4.method = "throw", e4.arg = new TypeError("The iterator does not provide a 'throw' method");
-        }
-        return u2;
-      }
-      var n4 = s(r4, t4.iterator, e4.arg);
-      if ("throw" === n4.type)
-        return e4.method = "throw", e4.arg = n4.arg, e4.delegate = null, u2;
-      var o2 = n4.arg;
-      return o2 ? o2.done ? (e4[t4.resultName] = o2.value, e4.next = t4.nextLoc, "return" !== e4.method && (e4.method = "next", e4.arg = void 0), e4.delegate = null, u2) : o2 : (e4.method = "throw", e4.arg = new TypeError("iterator result is not an object"), e4.delegate = null, u2);
-    }
-    function w2(t4) {
-      var e4 = { tryLoc: t4[0] };
-      1 in t4 && (e4.catchLoc = t4[1]), 2 in t4 && (e4.finallyLoc = t4[2], e4.afterLoc = t4[3]), this.tryEntries.push(e4);
-    }
-    function x2(t4) {
-      var e4 = t4.completion || {};
-      e4.type = "normal", delete e4.arg, t4.completion = e4;
-    }
-    function E2(t4) {
-      this.tryEntries = [{ tryLoc: "root" }], t4.forEach(w2, this), this.reset(true);
-    }
-    function O2(t4) {
-      if (t4) {
-        var e4 = t4[o];
-        if (e4)
-          return e4.call(t4);
-        if ("function" == typeof t4.next)
-          return t4;
-        if (!isNaN(t4.length)) {
-          var n4 = -1, i2 = function e5() {
-            for (; ++n4 < t4.length; )
-              if (r3.call(t4, n4))
-                return e5.value = t4[n4], e5.done = false, e5;
-            return e5.value = void 0, e5.done = true, e5;
-          };
-          return i2.next = i2;
-        }
-      }
-      return { next: k2 };
-    }
-    function k2() {
-      return { value: void 0, done: true };
-    }
-    return f2.prototype = y2.constructor = p2, p2.constructor = f2, p2[a] = f2.displayName = "GeneratorFunction", t3.isGeneratorFunction = function(t4) {
-      var e4 = "function" == typeof t4 && t4.constructor;
-      return !!e4 && (e4 === f2 || "GeneratorFunction" === (e4.displayName || e4.name));
-    }, t3.mark = function(t4) {
-      return Object.setPrototypeOf ? Object.setPrototypeOf(t4, p2) : (t4.__proto__ = p2, a in t4 || (t4[a] = "GeneratorFunction")), t4.prototype = Object.create(y2), t4;
-    }, t3.awrap = function(t4) {
-      return { __await: t4 };
-    }, m2(g2.prototype), g2.prototype[i] = function() {
-      return this;
-    }, t3.AsyncIterator = g2, t3.async = function(e4, r4, n4, o2) {
-      var i2 = new g2(c2(e4, r4, n4, o2));
-      return t3.isGeneratorFunction(r4) ? i2 : i2.next().then(function(t4) {
-        return t4.done ? t4.value : i2.next();
-      });
-    }, m2(y2), y2[a] = "Generator", y2[o] = function() {
-      return this;
-    }, y2.toString = function() {
-      return "[object Generator]";
-    }, t3.keys = function(t4) {
-      var e4 = [];
-      for (var r4 in t4)
-        e4.push(r4);
-      return e4.reverse(), function r5() {
-        for (; e4.length; ) {
-          var n4 = e4.pop();
-          if (n4 in t4)
-            return r5.value = n4, r5.done = false, r5;
-        }
-        return r5.done = true, r5;
-      };
-    }, t3.values = O2, E2.prototype = { constructor: E2, reset: function(t4) {
-      if (this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = false, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(x2), !t4)
-        for (var e4 in this)
-          "t" === e4.charAt(0) && r3.call(this, e4) && !isNaN(+e4.slice(1)) && (this[e4] = void 0);
-    }, stop: function() {
-      this.done = true;
-      var t4 = this.tryEntries[0].completion;
-      if ("throw" === t4.type)
-        throw t4.arg;
-      return this.rval;
-    }, dispatchException: function(t4) {
-      if (this.done)
-        throw t4;
-      var e4 = this;
-      function n4(r4, n5) {
-        return a2.type = "throw", a2.arg = t4, e4.next = r4, n5 && (e4.method = "next", e4.arg = void 0), !!n5;
-      }
-      for (var o2 = this.tryEntries.length - 1; o2 >= 0; --o2) {
-        var i2 = this.tryEntries[o2], a2 = i2.completion;
-        if ("root" === i2.tryLoc)
-          return n4("end");
-        if (i2.tryLoc <= this.prev) {
-          var c3 = r3.call(i2, "catchLoc"), s2 = r3.call(i2, "finallyLoc");
-          if (c3 && s2) {
-            if (this.prev < i2.catchLoc)
-              return n4(i2.catchLoc, true);
-            if (this.prev < i2.finallyLoc)
-              return n4(i2.finallyLoc);
-          } else if (c3) {
-            if (this.prev < i2.catchLoc)
-              return n4(i2.catchLoc, true);
-          } else {
-            if (!s2)
-              throw new Error("try statement without catch or finally");
-            if (this.prev < i2.finallyLoc)
-              return n4(i2.finallyLoc);
-          }
-        }
-      }
-    }, abrupt: function(t4, e4) {
-      for (var n4 = this.tryEntries.length - 1; n4 >= 0; --n4) {
-        var o2 = this.tryEntries[n4];
-        if (o2.tryLoc <= this.prev && r3.call(o2, "finallyLoc") && this.prev < o2.finallyLoc) {
-          var i2 = o2;
-          break;
-        }
-      }
-      i2 && ("break" === t4 || "continue" === t4) && i2.tryLoc <= e4 && e4 <= i2.finallyLoc && (i2 = null);
-      var a2 = i2 ? i2.completion : {};
-      return a2.type = t4, a2.arg = e4, i2 ? (this.method = "next", this.next = i2.finallyLoc, u2) : this.complete(a2);
-    }, complete: function(t4, e4) {
-      if ("throw" === t4.type)
-        throw t4.arg;
-      return "break" === t4.type || "continue" === t4.type ? this.next = t4.arg : "return" === t4.type ? (this.rval = this.arg = t4.arg, this.method = "return", this.next = "end") : "normal" === t4.type && e4 && (this.next = e4), u2;
-    }, finish: function(t4) {
-      for (var e4 = this.tryEntries.length - 1; e4 >= 0; --e4) {
-        var r4 = this.tryEntries[e4];
-        if (r4.finallyLoc === t4)
-          return this.complete(r4.completion, r4.afterLoc), x2(r4), u2;
-      }
-    }, catch: function(t4) {
-      for (var e4 = this.tryEntries.length - 1; e4 >= 0; --e4) {
-        var r4 = this.tryEntries[e4];
-        if (r4.tryLoc === t4) {
-          var n4 = r4.completion;
-          if ("throw" === n4.type) {
-            var o2 = n4.arg;
-            x2(r4);
-          }
-          return o2;
-        }
-      }
-      throw new Error("illegal catch attempt");
-    }, delegateYield: function(t4, e4, r4) {
-      return this.delegate = { iterator: O2(t4), resultName: e4, nextLoc: r4 }, "next" === this.method && (this.arg = void 0), u2;
-    } }, t3;
-  }(t2.exports);
-  try {
-    regeneratorRuntime = n2;
-  } catch (t3) {
-    Function("r", "regeneratorRuntime = r")(n2);
-  }
-}, function(t2, e2) {
-  function r2(e3, n2) {
-    return t2.exports = r2 = Object.setPrototypeOf || function(t3, e4) {
-      return t3.__proto__ = e4, t3;
-    }, r2(e3, n2);
-  }
-  t2.exports = r2;
-}, function(t2, e2, r2) {
-  var n2 = r2(15);
-  "string" == typeof n2 && (n2 = [[t2.i, n2, ""]]);
-  var o = { insert: "head", singleton: false };
-  r2(17)(n2, o);
-  n2.locals && (t2.exports = n2.locals);
-}, function(t2, e2, r2) {
-  (t2.exports = r2(16)(false)).push([t2.i, ".addAnimate {\n  animation: grow 1.5s 0.5s forwards ease-out;\n}\n\n.addRectAnimate {\n  animation: rectGrow 1.5s 0.5s forwards ease-out;\n}\n\n@keyframes grow {\n  to {\n    stroke-dashoffset: var(--level, 200);\n  }\n}\n\n@keyframes rectGrow {\n  to {\n    width: var(--rectLevel, 50%);\n  }\n}\n.progress-bar {\n  position: relative;\n}\n.progress-bar-percent {\n  position: absolute;\n  font-size: 3em;\n  padding: 0;\n  margin: 0;\n  left: 50%;\n  top: 50%;\n  font-family: sans-serif;\n  transform: translate(-50%, -50%);\n}\n\n.progress-bar-rect-wrap-container {\n  display: flex;\n  align-items: center;\n}\n.progress-bar-rect-wrapper {\n  width: 100%;\n}\n.progress-bar-circ-container {\n  position: relative;\n  width: fit-content;\n}\n\n* {\n  box-sizing: border-box;\n}\n", ""]);
-}, function(t2, e2, r2) {
-  t2.exports = function(t3) {
-    var e3 = [];
-    return e3.toString = function() {
-      return this.map(function(e4) {
-        var r3 = function(t4, e5) {
-          var r4 = t4[1] || "", n2 = t4[3];
-          if (!n2)
-            return r4;
-          if (e5 && "function" == typeof btoa) {
-            var o = (a = n2, c2 = btoa(unescape(encodeURIComponent(JSON.stringify(a)))), s = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(c2), "/*# ".concat(s, " */")), i = n2.sources.map(function(t5) {
-              return "/*# sourceURL=".concat(n2.sourceRoot).concat(t5, " */");
-            });
-            return [r4].concat(i).concat([o]).join("\n");
-          }
-          var a, c2, s;
-          return [r4].join("\n");
-        }(e4, t3);
-        return e4[2] ? "@media ".concat(e4[2], "{").concat(r3, "}") : r3;
-      }).join("");
-    }, e3.i = function(t4, r3) {
-      "string" == typeof t4 && (t4 = [[null, t4, ""]]);
-      for (var n2 = {}, o = 0; o < this.length; o++) {
-        var i = this[o][0];
-        null != i && (n2[i] = true);
-      }
-      for (var a = 0; a < t4.length; a++) {
-        var c2 = t4[a];
-        null != c2[0] && n2[c2[0]] || (r3 && !c2[2] ? c2[2] = r3 : r3 && (c2[2] = "(".concat(c2[2], ") and (").concat(r3, ")")), e3.push(c2));
-      }
-    }, e3;
-  };
-}, function(t2, e2, r2) {
-  var n2, o = {}, i = function() {
-    return void 0 === n2 && (n2 = Boolean(window && document && document.all && !window.atob)), n2;
-  }, a = function() {
-    var t3 = {};
-    return function(e3) {
-      if (void 0 === t3[e3]) {
-        var r3 = document.querySelector(e3);
-        if (window.HTMLIFrameElement && r3 instanceof window.HTMLIFrameElement)
-          try {
-            r3 = r3.contentDocument.head;
-          } catch (t4) {
-            r3 = null;
-          }
-        t3[e3] = r3;
-      }
-      return t3[e3];
-    };
-  }();
-  function c2(t3, e3) {
-    for (var r3 = [], n3 = {}, o2 = 0; o2 < t3.length; o2++) {
-      var i2 = t3[o2], a2 = e3.base ? i2[0] + e3.base : i2[0], c3 = { css: i2[1], media: i2[2], sourceMap: i2[3] };
-      n3[a2] ? n3[a2].parts.push(c3) : r3.push(n3[a2] = { id: a2, parts: [c3] });
-    }
-    return r3;
-  }
-  function s(t3, e3) {
-    for (var r3 = 0; r3 < t3.length; r3++) {
-      var n3 = t3[r3], i2 = o[n3.id], a2 = 0;
-      if (i2) {
-        for (i2.refs++; a2 < i2.parts.length; a2++)
-          i2.parts[a2](n3.parts[a2]);
-        for (; a2 < n3.parts.length; a2++)
-          i2.parts.push(y2(n3.parts[a2], e3));
-      } else {
-        for (var c3 = []; a2 < n3.parts.length; a2++)
-          c3.push(y2(n3.parts[a2], e3));
-        o[n3.id] = { id: n3.id, refs: 1, parts: c3 };
-      }
-    }
-  }
-  function u2(t3) {
-    var e3 = document.createElement("style");
-    if (void 0 === t3.attributes.nonce) {
-      var n3 = r2.nc;
-      n3 && (t3.attributes.nonce = n3);
-    }
-    if (Object.keys(t3.attributes).forEach(function(r3) {
-      e3.setAttribute(r3, t3.attributes[r3]);
-    }), "function" == typeof t3.insert)
-      t3.insert(e3);
-    else {
-      var o2 = a(t3.insert || "head");
-      if (!o2)
-        throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
-      o2.appendChild(e3);
-    }
-    return e3;
-  }
-  var l2, f2 = (l2 = [], function(t3, e3) {
-    return l2[t3] = e3, l2.filter(Boolean).join("\n");
-  });
-  function p2(t3, e3, r3, n3) {
-    var o2 = r3 ? "" : n3.css;
-    if (t3.styleSheet)
-      t3.styleSheet.cssText = f2(e3, o2);
-    else {
-      var i2 = document.createTextNode(o2), a2 = t3.childNodes;
-      a2[e3] && t3.removeChild(a2[e3]), a2.length ? t3.insertBefore(i2, a2[e3]) : t3.appendChild(i2);
-    }
-  }
-  function h2(t3, e3, r3) {
-    var n3 = r3.css, o2 = r3.media, i2 = r3.sourceMap;
-    if (o2 && t3.setAttribute("media", o2), i2 && btoa && (n3 += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(i2)))), " */")), t3.styleSheet)
-      t3.styleSheet.cssText = n3;
-    else {
-      for (; t3.firstChild; )
-        t3.removeChild(t3.firstChild);
-      t3.appendChild(document.createTextNode(n3));
-    }
-  }
-  var d2 = null, v2 = 0;
-  function y2(t3, e3) {
-    var r3, n3, o2;
-    if (e3.singleton) {
-      var i2 = v2++;
-      r3 = d2 || (d2 = u2(e3)), n3 = p2.bind(null, r3, i2, false), o2 = p2.bind(null, r3, i2, true);
-    } else
-      r3 = u2(e3), n3 = h2.bind(null, r3, e3), o2 = function() {
-        !function(t4) {
-          if (null === t4.parentNode)
-            return false;
-          t4.parentNode.removeChild(t4);
-        }(r3);
-      };
-    return n3(t3), function(e4) {
-      if (e4) {
-        if (e4.css === t3.css && e4.media === t3.media && e4.sourceMap === t3.sourceMap)
-          return;
-        n3(t3 = e4);
-      } else
-        o2();
-    };
-  }
-  t2.exports = function(t3, e3) {
-    (e3 = e3 || {}).attributes = "object" == typeof e3.attributes ? e3.attributes : {}, e3.singleton || "boolean" == typeof e3.singleton || (e3.singleton = i());
-    var r3 = c2(t3, e3);
-    return s(r3, e3), function(t4) {
-      for (var n3 = [], i2 = 0; i2 < r3.length; i2++) {
-        var a2 = r3[i2], u3 = o[a2.id];
-        u3 && (u3.refs--, n3.push(u3));
-      }
-      t4 && s(c2(t4, e3), e3);
-      for (var l3 = 0; l3 < n3.length; l3++) {
-        var f3 = n3[l3];
-        if (0 === f3.refs) {
-          for (var p3 = 0; p3 < f3.parts.length; p3++)
-            f3.parts[p3]();
-          delete o[f3.id];
-        }
-      }
-    };
-  };
-}, function(t2, e2, r2) {
-  r2.r(e2);
-  var n2 = r2(7), o = r2.n(n2), i = r2(3), a = r2.n(i), c2 = r2(4), s = r2.n(c2), u2 = r2(8), l2 = r2.n(u2), f2 = r2(5), p2 = r2.n(f2), h2 = r2(6), d2 = r2.n(h2), v2 = r2(9), y2 = r2.n(v2), m2 = r2(10), g2 = r2.n(m2), b2 = r2(1), w2 = r2.n(b2), x2 = r2(11), E2 = r2.n(x2), O2 = r2(2), k2 = r2.n(O2), j = r2(0), S2 = r2.n(j), P2 = (r2(14), function() {
-    function t3(e3) {
-      p2()(this, t3), this.time = e3, this.timeout = null, this.close = null;
-    }
-    return d2()(t3, [{ key: "getPromise", value: function() {
-      var t4 = this;
-      return new Promise(function(e3, r3) {
-        t4.close = r3, t4.timeout = setTimeout(function() {
-          e3();
-        }, t4.time);
-      });
-    } }, { key: "cancel", value: function() {
-      return this.timeout && clearTimeout(this.timeout), this.close && this.close(), { isCanceled: true };
-    } }]), t3;
-  }()), R2 = function(t3) {
-    var e3 = window.scrollY || window.pageYOffset, r3 = t3.getBoundingClientRect(), n3 = r3.top + e3, o2 = e3, i2 = e3 + window.innerHeight, a2 = Math.floor(n3), c3 = Math.floor(n3 + r3.height);
-    return c3 >= o2 && c3 <= i2 || a2 <= i2 && a2 >= o2;
-  }, L2 = function(t3) {
-    var e3 = Number(t3);
-    return e3 < 0 && (e3 = 0), e3 > 100 && (e3 = 100), e3;
-  }, N2 = function(t3) {
-    var e3 = 252 - 2.52 * L2(t3);
-    return "".concat(e3, "%");
-  }, C2 = function(t3, e3) {
-    var r3 = L2(t3), n3 = e3 && e3.poor || "#F32013", o2 = e3 && e3.fair || "#ff6700", i2 = e3 && e3.good || "rgb(255, 217, 0)", a2 = e3 && e3.excellent || "#48AE2C";
-    return r3 < 25 && n3 || r3 < 50 && o2 || r3 < 70 && i2 || a2;
-  }, _ = function(t3) {
-    for (var e3 = t3.split(""), r3 = "", n3 = 0; n3 < e3.length && !isNaN(Number(e3[n3])); n3++)
-      r3 += e3[n3];
-    return r3;
-  }, T2 = function(t3) {
-    var e3 = Number(_(t3));
-    return e3 < 20 || isNaN(e3) ? 250 : "%" === t3.trim().slice(-1) ? e3 / 2 + "%" : e3 / 2;
-  }, I2 = { width: function(t3, e3) {
-    if (!t3[e3] || "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to the progress bar component. Please provide a width!"));
-  }, percentage: function(t3, e3) {
-    if (!t3[e3] || t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component. Please provide a percentage value!"));
-  }, height: function(t3, e3) {
-    if (t3.rect && (!t3[e3] || t3[e3] && "string" != typeof t3[e3]))
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component. Please provide a height!"));
-  }, rectPadding: function(t3, e3) {
-    if (t3.rect && (!t3.height || "string" != typeof t3.height))
-      return new Error("Invalid information supplied to progress bar component. Please provide a height before you provide this ".concat(e3, "!"));
-  }, trackBorderColor: function(t3, e3) {
-    if (t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, fontColor: function(t3, e3) {
-    if (t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, rectBorderRadius: function(t3, e3) {
-    if (t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, trackPathColor: function(t3, e3) {
-    if (t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, hollowBackgroundColor: function(t3, e3) {
-    if (t3[e3] && "string" != typeof t3[e3])
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, scrollArea: function(t3, e3) {
-    if (t3[e3] && "object" != a()(t3[e3]))
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  }, defColor: function(t3, e3) {
-    if (t3[e3] && "object" == a()(t3[e3])) {
-      for (var r3 = Object.keys(t3[e3]), n3 = 0; n3 < r3.length; n3++)
-        if ("string" != typeof t3[e3][r3[n3]])
-          return new Error("Invalid  property Key ".concat(r3[n3], " for ").concat(e3, " supplied to progress bar component!"));
-    } else if (t3[e3] && "object" !== a()(t3[e3]))
-      return new Error("Invalid ".concat(e3, " supplied to progress bar component!"));
-  } }, A2 = function(t3) {
-    var e3 = t3.percentage, r3 = t3.radius, n3 = t3.trackWidth, o2 = t3.trackPathColor, i2 = t3.fontColor, a2 = t3.trackBorderColor, c3 = t3.defColor, s2 = t3.hollowBackgroundColor, u3 = t3.trackRef, l3 = t3.animate, f3 = t3.counter, p3 = !isNaN(Number(_(n3))) && 0.4 * _(n3) || 4;
-    return S2.a.createElement("div", { className: "progress-bar-circ-container" }, S2.a.createElement("h2", { className: "progress-bar-percent", style: { fontSize: "".concat(0.2 * r3, "px"), color: i2 } }, f3, "%"), S2.a.createElement("svg", { height: "".concat(r3 || "183"), width: "".concat(r3 || "183") }, S2.a.createElement("circle", { className: "progress-bar-trackPath-background", ref: u3, cx: "50%", cy: "50%", r: "40%", stroke: o2 || "rgba(158, 158, 158, 0.322)", strokeWidth: p3 + "%", fill: "none" }), S2.a.createElement("circle", { className: "progress-bar-track ".concat(l3 && "addAnimate"), ref: u3, cx: "50%", cy: "50%", r: "40%", stroke: e3 && C2(e3, c3), strokeWidth: p3 + "%", fill: "none", strokeDasharray: "252%", strokeDashoffset: "252%" }), S2.a.createElement("circle", { cx: "50%", cy: "50%", r: "".concat(40 + p3 / 2, "%") || false, stroke: a2 || "rgba(158, 158, 158, 0.3)", strokeWidth: "1", fill: "none" }), S2.a.createElement("circle", { className: "progress-bar-hollow", cx: "50%", cy: "50%", r: "".concat(40 - p3 / 2, "%") || false, stroke: a2 || "rgba(158, 158, 158, 0.3)", strokeWidth: "1", fill: s2 || "none" })));
-  }, D2 = function(t3) {
-    var e3 = t3.percentage, r3 = t3.trackWidth, n3 = t3.trackPathColor, o2 = t3.fontColor, i2 = t3.trackBorderColor, a2 = t3.defColor, c3 = (t3.width, t3.counter), s2 = t3.rectTrackRef, u3 = t3.animate, l3 = t3.rectBorderRadius, f3 = t3.trackBorderRadius, p3 = t3.rectPadding, h3 = t3.fontSize, d3 = t3.height;
-    return S2.a.createElement("div", { className: "progress-bar-rect-wrap-container" }, S2.a.createElement("div", { className: "progress-bar-rect-wrapper", style: { border: "".concat(r3 || "1px", " solid ").concat(i2), padding: "".concat(p3), borderRadius: "".concat(l3), height: "".concat(d3) } }, S2.a.createElement("div", { style: { backgroundColor: "".concat(n3), height: "100%" } }, S2.a.createElement("div", { ref: s2, className: "inner-rect-bar ".concat(u3 && "addRectAnimate"), style: { width: "0px", height: "100%", backgroundColor: C2(e3, a2), borderRadius: "".concat(f3 || l3 || "0px") } }))), S2.a.createElement("h2", { className: "rect-progress-bar-percent", style: { display: "flex", fontSize: "".concat(h3 || "calc(".concat(d3, " * 1.6)")), margin: "1em", color: o2 } }, c3, "%"));
-  };
-  function M2(t3, e3) {
-    var r3 = Object.keys(t3);
-    if (Object.getOwnPropertySymbols) {
-      var n3 = Object.getOwnPropertySymbols(t3);
-      e3 && (n3 = n3.filter(function(e4) {
-        return Object.getOwnPropertyDescriptor(t3, e4).enumerable;
-      })), r3.push.apply(r3, n3);
-    }
-    return r3;
-  }
-  function B2(t3) {
-    for (var e3 = 1; e3 < arguments.length; e3++) {
-      var r3 = null != arguments[e3] ? arguments[e3] : {};
-      e3 % 2 ? M2(r3, true).forEach(function(e4) {
-        k2()(t3, e4, r3[e4]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(t3, Object.getOwnPropertyDescriptors(r3)) : M2(r3).forEach(function(e4) {
-        Object.defineProperty(t3, e4, Object.getOwnPropertyDescriptor(r3, e4));
-      });
-    }
-    return t3;
-  }
-  var G2 = function(t3) {
-    function e3() {
-      var t4, r3;
-      p2()(this, e3);
-      for (var n3 = arguments.length, o2 = new Array(n3), i2 = 0; i2 < n3; i2++)
-        o2[i2] = arguments[i2];
-      return r3 = y2()(this, (t4 = g2()(e3)).call.apply(t4, [this].concat(o2))), k2()(w2()(r3), "state", { animate: false, counter: 0, responsiveRadius: 0, scrollAreaIsSet: null, stepDelay: null, countDelay: null }), k2()(w2()(r3), "myRef", Object(j.createRef)()), k2()(w2()(r3), "rectTrackRef", Object(j.createRef)()), k2()(w2()(r3), "trackRef", Object(j.createRef)()), k2()(w2()(r3), "scrollRef", Object(j.createRef)()), k2()(w2()(r3), "animateCount", l2()(s.a.mark(function t5() {
-        return s.a.wrap(function(t6) {
-          for (; ; )
-            switch (t6.prev = t6.next) {
-              case 0:
-                return t6.prev = 0, t6.delegateYield(s.a.mark(function t7() {
-                  var e4, n4, o3;
-                  return s.a.wrap(function(t8) {
-                    for (; ; )
-                      switch (t8.prev = t8.next) {
-                        case 0:
-                          return r3.setState({ counter: 0 }), e4 = L2(r3.props.percentage), n4 = new P2(500), o3 = new P2(1e3 / e4), r3.setState({ stepDelay: n4, countDelay: o3 }), t8.next = 7, n4.getPromise();
-                        case 7:
-                          if (!(r3.state.counter < e4)) {
-                            t8.next = 13;
-                            break;
-                          }
-                          return t8.next = 10, o3.getPromise();
-                        case 10:
-                          r3.setState(function(t9) {
-                            return B2({}, t9, { counter: t9.counter + 1 > e4 ? e4 : t9.counter + 1 });
-                          }), t8.next = 7;
-                          break;
-                        case 13:
-                        case "end":
-                          return t8.stop();
-                      }
-                  }, t7);
-                })(), "t0", 2);
-              case 2:
-                t6.next = 6;
-                break;
-              case 4:
-                t6.prev = 4, t6.t1 = t6.catch(0);
-              case 6:
-              case "end":
-                return t6.stop();
-            }
-        }, t5, null, [[0, 4]]);
-      }))), k2()(w2()(r3), "animateOnScroll", function() {
-        var t5 = arguments.length > 0 && void 0 !== arguments[0] && arguments[0];
-        (!r3.state.animate && R2(r3.myRef.current) || t5) && (r3.scrollRef && r3.scrollRef.current && r3.scrollRef.current.removeEventListener("scroll", r3.animateOnScroll), r3.animateCount(), r3.setState({ animate: true }), r3.props.rect ? r3.rectTrackRef.current.style.setProperty("--rectLevel", "".concat(L2(r3.props.percentage), "%")) : r3.trackRef.current.style.setProperty("--level", N2(r3.props.percentage)));
-      }), r3;
-    }
-    return E2()(e3, t3), d2()(e3, [{ key: "componentDidMount", value: function() {
-      this.animateOnScroll(), this.setState({ scrollAreaIsSet: false });
-    } }, { key: "componentDidUpdate", value: function(t4) {
-      var e4 = this;
-      this.state.scrollAreaIsSet || (this.setState({ scrollAreaIsSet: true }), this.props.scrollArea && "object" == a()(this.props.scrollArea) ? this.props.scrollArea.addEventListener("scroll", function() {
-        return e4.animateOnScroll(true);
-      }) : document.addEventListener("scroll", function() {
-        return e4.animateOnScroll(true);
-      })), t4.percentage !== this.props.percentage && this.animateOnScroll(true);
-    } }, { key: "componentWillUnmount", value: function() {
-      this.scrollRef && this.scrollRef.current && this.scrollRef.current.removeEventListener("scroll", this.animateOnScroll), this.state.stepDelay && this.state.stepDelay.cancel(), this.state.countDelay && this.state.countDelay.cancel();
-    } }, { key: "render", value: function() {
-      var t4 = this.props, e4 = t4.width, r3 = t4.rect;
-      return S2.a.createElement("div", { ref: this.myRef, className: "progress-bar", style: { width: "".concat(e4) } }, r3 ? S2.a.createElement(D2, o()({}, this.props, { rectTrackRef: this.rectTrackRef, counter: this.state.counter, animate: this.state.animate })) : S2.a.createElement(A2, o()({}, this.props, { radius: T2(this.props.width), animate: this.state.animate, counter: this.state.counter, trackRef: this.trackRef })));
-    } }]), e3;
-  }(j.Component);
-  G2.propTypes = I2;
-  e2.default = G2;
-}]);
-const Redux = "/Yomna-s-Portfolio/assets/redux-f5f8094e.svg";
-const React = "/Yomna-s-Portfolio/assets/react-35ef61ed.svg";
-const Tailwind = "/Yomna-s-Portfolio/assets/tailwind-2a43431b.svg";
-const Flutter = "/Yomna-s-Portfolio/assets/flutter-a1683dd7.svg";
-const Firebase = "/Yomna-s-Portfolio/assets/firebase-96113108.svg";
-const SkillBar = ({ title, percentage }) => /* @__PURE__ */ jsxs(GridItem, { children: [
-  /* @__PURE__ */ jsx(Text, { children: title }),
-  /* @__PURE__ */ jsx(
-    dist,
-    {
-      width: "400px",
-      height: "10px",
-      rect: true,
-      fontColor: "black",
-      percentage,
-      rectBorderRadius: "20px",
-      trackPathColor: "transparent",
-      bgColor: "green",
-      trackBorderColor: "#b1c4b6"
-    }
-  )
-] });
-const StackSkill = ({ title, percentage, icon }) => /* @__PURE__ */ jsx(GridItem, { children: /* @__PURE__ */ jsxs(VStack, { children: [
-  /* @__PURE__ */ jsx(dist, { width: "230", trackWidth: "13", percentage }),
-  /* @__PURE__ */ jsxs(HStack, { children: [
-    icon,
-    /* @__PURE__ */ jsx(Text, { children: title })
-  ] })
-] }) });
-function Skills() {
-  const stacks = [
-    {
-      title: "React JS",
-      percentage: "65",
-      icon: /* @__PURE__ */ jsx(Image$1, { src: React, width: "4", height: "4" })
-    },
-    {
-      title: "Redux",
-      percentage: "50",
-      icon: /* @__PURE__ */ jsx(Image$1, { src: Redux, width: "4", height: "4" })
-    },
-    {
-      title: "Bootstrap",
-      percentage: "70",
-      icon: /* @__PURE__ */ jsx(FaBootstrap, { color: "#8712FA", size: "20" })
-    },
-    {
-      title: "Tailwind",
-      percentage: "60",
-      icon: /* @__PURE__ */ jsx(Image$1, { src: Tailwind, width: "4", height: "4" })
-    },
-    {
-      title: "Flutter",
-      percentage: "80",
-      icon: /* @__PURE__ */ jsx(Image$1, { src: Flutter, width: "4", height: "4" })
-    },
-    {
-      title: "Firebase",
-      percentage: "75",
-      icon: /* @__PURE__ */ jsx(Image$1, { src: Firebase, width: "4", height: "4" })
-    }
-  ];
-  return /* @__PURE__ */ jsx(Box, { px: mainPx, id: "skills", children: /* @__PURE__ */ jsxs(MotionItem, { children: [
-    /* @__PURE__ */ jsx(Flex, { justifyContent: "center", children: /* @__PURE__ */ jsx(Heading, { children: "My Skills" }) }),
-    /* @__PURE__ */ jsx(Center, { mt: "10", children: /* @__PURE__ */ jsx(
-      Grid,
-      {
-        templateColumns: {
-          base: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)"
-        },
-        gap: "4",
-        children: skills.map((skill, index2) => /* @__PURE__ */ jsx(
-          SkillBar,
-          {
-            title: skill.title,
-            percentage: skill.percentage
-          },
-          index2
-        ))
-      }
-    ) }),
-    /* @__PURE__ */ jsx(Center, { my: "10", children: /* @__PURE__ */ jsx(Text, { fontSize: "lg", children: "Stacks" }) }),
-    /* @__PURE__ */ jsx(Center, { children: /* @__PURE__ */ jsx(
-      Grid,
-      {
-        templateColumns: {
-          base: "repeat(3, 1fr)",
-          md: "repeat(6, 1fr)"
-        },
-        gap: "4",
-        children: stacks.map((stack, index2) => /* @__PURE__ */ jsx(
-          StackSkill,
-          {
-            title: stack.title,
-            percentage: stack.percentage,
-            icon: stack.icon
-          },
-          index2
-        ))
-      }
-    ) })
-  ] }) });
-}
 function HireMe() {
   const onHover = {
     borderColor: "amber"
@@ -27993,7 +27122,6 @@ function Layout() {
     /* @__PURE__ */ jsxs(MotionContainer, { children: [
       /* @__PURE__ */ jsx(Summary, {}),
       /* @__PURE__ */ jsx(Projects, {}),
-      /* @__PURE__ */ jsx(Skills, {}),
       /* @__PURE__ */ jsx(HireMe, {}),
       /* @__PURE__ */ jsx(Footer, {})
     ] })
@@ -28004,5 +27132,5 @@ function App() {
 }
 const index = "";
 client.createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsx(React$1.StrictMode, { children: /* @__PURE__ */ jsx(ChakraProvider, { theme: style, children: /* @__PURE__ */ jsx(App, {}) }) })
+  /* @__PURE__ */ jsx(React.StrictMode, { children: /* @__PURE__ */ jsx(ChakraProvider, { theme: style, children: /* @__PURE__ */ jsx(App, {}) }) })
 );

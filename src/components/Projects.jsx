@@ -2,10 +2,11 @@ import { Box, Center, Grid, Heading } from "@chakra-ui/react";
 import MotionItem from "./motion/MotionItem";
 import projects from "../constants/projects.js";
 import ProjectItem from "./ProjectItem";
+import { mainPx } from "../styles/style";
 
 function Projects() {
   return (
-    <Box px={"20"} id="projects">
+    <Box px={mainPx} id="projects">
       <MotionItem>
         <Center>
           <Heading>My Recent Projects</Heading>
@@ -16,8 +17,8 @@ function Projects() {
             md: "repeat(2, 1fr)",
             lg: "repeat(3, 1fr)",
           }}
-          m={"6"}
-          gap={"4"}
+          m={"2"}
+          gap={"2"}
         >
           {projects.map((project, index) => {
             return <ProjectItem key={index} project={project} />;

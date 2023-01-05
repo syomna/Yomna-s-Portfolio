@@ -35,7 +35,7 @@ const onHover = {
 const layoutGradient = [`linear(to-tl, pink, white)`];
 const navBarGradient = [`linear(to-bl, pink, white)`];
 
-const mainPx = "20";
+const mainPx = { base: "4", md: "20" };
 
 const containerAnimation = {
   hidden: { opacity: 1, scale: 0 },
@@ -57,6 +57,13 @@ const itemAnimation = {
   },
 };
 
-export { onHover, layoutGradient, navBarGradient, mainPx, containerAnimation , itemAnimation };
+export {
+  onHover,
+  layoutGradient,
+  navBarGradient,
+  mainPx,
+  containerAnimation,
+  itemAnimation,
+};
 
 export default style;

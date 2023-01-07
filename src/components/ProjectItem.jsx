@@ -1,6 +1,6 @@
 import {
-  Button,
   Card,
+  Center,
   GridItem,
   HStack,
   Image,
@@ -21,25 +21,7 @@ import {
   FaGithub,
   FaGooglePlay,
 } from "react-icons/fa";
-
-const StoresButtons = ({ icon, link }) => {
-  return (
-    <Link href={link} isExternal>
-      <Button
-        borderTopLeftRadius={"0"}
-        px={"4"}
-        py={"4"}
-        backgroundColor={"black"}
-        color={"white"}
-        _hover={{
-          backgroundColor: "pinkish",
-        }}
-      >
-        {icon}
-      </Button>
-    </Link>
-  );
-};
+import Upwork from "../assets/upwork.svg";
 
 function ProjectItem({ project }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -47,43 +29,33 @@ function ProjectItem({ project }) {
     <GridItem>
       <Card
         m={"4"}
-        p={"4"}
-        height={"80"}
-        width={"80"}
+        p={"8"}
+        height={"250px"}
+        width={"250px"}
         backgroundColor={"white"}
         borderRadius={"10"}
+        onClick={onOpen}
+        cursor="pointer"
+        _hover={{
+          backgroundColor: "#f7f2f7",
+        }}
       >
         <VStack>
-          {project.image && (
-            <Image
-              src={project.image}
-              height={"50%"}
-              width={"50%"}
-              borderRadius={"10"}
-            ></Image>
-          )}
+          <Center>
+            {project.image && (
+              <Image
+                src={project.image}
+                height={"150px"}
+                width={"150px"}
+                borderRadius={"10"}
+              ></Image>
+            )}
+          </Center>
+
           {project.title && (
-            <Text as={"b"} px={"4"}>
+            <Text as={"b"} px={"4"} fontSize="md">
               {project.title}
             </Text>
-          )}
-          {project.description && (
-            <HStack>
-              <Text px={"4"}>{project.description}</Text>
-              <Button
-                borderTopLeftRadius={"50%"}
-                px={"4"}
-                py={"4"}
-                backgroundColor={"black"}
-                color={"white"}
-                _hover={{
-                  backgroundColor: "pinkish",
-                }}
-                onClick={onOpen}
-              >
-                <FaArrowUp />
-              </Button>
-            </HStack>
           )}
 
           <Modal
@@ -109,43 +81,72 @@ function ProjectItem({ project }) {
                 <Text fontWeight="bold" mb="1rem">
                   {project.technologies}
                 </Text>
-                {project.onUpwork && (
-                  <Link
-                    href="https://www.upwork.com/freelancers/~0155980773e7307264"
-                    isExternal
-                  >
-                    <Text as={"b"} color={"green"}>
-                      On upwork
-                    </Text>
-                  </Link>
-                )}
+                <HStack gap={"4"}>
+                  {project.onUpwork && (
+                    <Link
+                      href="https://www.upwork.com/freelancers/~0155980773e7307264"
+                      isExternal
+                      _hover={{
+                        color: "pinkish",
+                      }}
+                    >
+                      <Image
+                        src={Upwork}
+                        width={"16"}
+                        height={"16"}
+                        _hover={{
+                          color: "pinkish",
+                        }}
+                      ></Image>
+                    </Link>
+                  )}
+                  {project.isApp ? (
+                    <HStack gap={"4"}>
+                      <Link
+                        href={project.playStoreLink}
+                        isExternal
+                        _hover={{
+                          color: "pinkish",
+                        }}
+                      >
+                        <FaGooglePlay size={"20"} cursor="pointer" />
+                      </Link>
+                      <Link
+                        href={project.appStoreLink}
+                        isExternal
+                        _hover={{
+                          color: "pinkish",
+                        }}
+                      >
+                        <FaApple size={"20"} cursor="pointer" />
+                      </Link>
+                    </HStack>
+                  ) : (
+                    <HStack gap={"4"}>
+                      <Link
+                        href={project.websiteLink}
+                        isExternal
+                        _hover={{
+                          color: "pinkish",
+                        }}
+                      >
+                        <FaCode size={"20"} cursor="pointer" />
+                      </Link>
+                      <Link
+                        href={project.githubLink}
+                        isExternal
+                        _hover={{
+                          color: "pinkish",
+                        }}
+                      >
+                        <FaGithub size={"20"} cursor="pointer" />
+                      </Link>
+                    </HStack>
+                  )}
+                </HStack>
               </ModalBody>
             </ModalContent>
           </Modal>
-
-          {project.isApp ? (
-            <HStack>
-              <StoresButtons
-                icon={<FaGooglePlay size={"20"} />}
-                link={project.playStoreLink}
-              />
-              <StoresButtons
-                icon={<FaApple size={"20"} />}
-                link={project.appStoreLink}
-              />
-            </HStack>
-          ) : (
-            <HStack>
-              <StoresButtons
-                icon={<FaCode size={"20"} />}
-                link={project.websiteLink}
-              />
-              <StoresButtons
-                icon={<FaGithub size={"20"} />}
-                link={project.githubLink}
-              />
-            </HStack>
-          )}
         </VStack>
       </Card>
     </GridItem>

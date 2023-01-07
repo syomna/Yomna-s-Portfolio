@@ -24,18 +24,17 @@ import Firebase from "../assets/firebase.svg";
 import { mainPx } from "../styles/style";
 
 const SkillBar = ({ title, percentage }) => (
-  <GridItem>
-    <Flex justifyContent={"space-between"}>
-      <Text>{title}</Text>
-      <Text>{percentage}%</Text>
-    </Flex>
+  <GridItem mx="4">
+    <Text mb={"2"} fontSize="sm">
+      {title}
+    </Text>
     <Progress
       value={percentage}
       width={{ base: "300px", lg: "500px" }}
-      height={"20px"}
+      height={"15px"}
       borderRadius={"10"}
       bgColor={"white"}
-      colorScheme={percentage > 60 ? "green" : "orange"}
+      colorScheme={"green"}
     />
   </GridItem>
 );
@@ -47,7 +46,7 @@ const StackSkill = ({ title, percentage, icon }) => (
         value={percentage}
         size={"100px"}
         trackColor={"white"}
-        color={percentage > 60 ? "green" : "orange"}
+        color={"green"}
       >
         <CircularProgressLabel fontSize={"md"}>
           {percentage}%
@@ -55,7 +54,7 @@ const StackSkill = ({ title, percentage, icon }) => (
       </CircularProgress>
       <HStack>
         {icon}
-        <Text>{title}</Text>
+        <Text fontSize={"sm"}>{title}</Text>
       </HStack>
     </VStack>
   </GridItem>
@@ -97,9 +96,9 @@ function Skills() {
   return (
     <Box px={mainPx} id="skills">
       <MotionItem>
-        <Flex justifyContent={"center"}>
+        <Center my="8">
           <Heading>My Skills</Heading>
-        </Flex>
+        </Center>
         <Center mt={"10"}>
           <Grid
             templateColumns={{
@@ -117,8 +116,8 @@ function Skills() {
             ))}
           </Grid>
         </Center>
-        <Center my={"10"}>
-          <Text fontSize={"lg"}>Stacks</Text>
+        <Center my={"8"}>
+          <Heading>Stacks</Heading>
         </Center>
         <Center>
           <Grid

@@ -8,7 +8,7 @@ function Projects() {
   return (
     <Box px={mainPx} id="projects">
       <MotionItem>
-        <Center>
+        <Center mb="8">
           <Heading>My Recent Projects</Heading>
         </Center>
         <Grid

@@ -39,8 +39,8 @@ function HireMe() {
           </Center>
           <VStack
             width={{
-              base: "100%",
-              md: "70%",
+              base: "70%",
+              md: "50%",
             }}
             spacing={4}
           >
@@ -51,6 +51,7 @@ function HireMe() {
                 type="email"
                 borderColor={"black"}
                 _hover={onHover}
+                placeholder="email@gmail.com"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -76,6 +77,7 @@ function HireMe() {
             <FormControl isRequired>
               <FormLabel>Message</FormLabel>
               <Textarea
+                placeholder="Leave a message."
                 borderColor={"black"}
                 _hover={onHover}
                 value={message}
@@ -86,7 +88,7 @@ function HireMe() {
             </FormControl>
 
             <Button
-              width={"100%"}
+              width={"30%"}
               backgroundColor={"black"}
               color={"white"}
               type={"submit"}

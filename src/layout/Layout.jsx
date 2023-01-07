@@ -8,7 +8,7 @@ import HireMe from "../components/HireMe";
 import Footer from "../components/Footer";
 
 function Layout() {
-  const myGradient = [`linear(to-tl, pink, white)`];
+  const myGradient = [`linear(to-tl, #f7ebf5, white)`];
   return (
     <Box w="100%" h="100%" bgGradient={myGradient}>
       <NavBar />

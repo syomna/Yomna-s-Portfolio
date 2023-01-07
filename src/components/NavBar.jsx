@@ -35,7 +35,7 @@ export default function NavBar() {
   return (
     <>
       <Box
-        px={mainPx}
+        px={{ base: "10", md: "20" }}
         // color="white"
         position="fixed"
         width={"100%"}

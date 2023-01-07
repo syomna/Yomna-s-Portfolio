@@ -32,12 +32,12 @@ function Summary() {
   return (
     <Box m={"auto"} p={"20"} pt={"40"} id="home">
       <MotionItem>
-        <Text display={"block"} as={"b"} fontSize={"3xl"} color={"pinkish"}>
+        <Text display={"block"} as={"b"} fontSize={"3xl"}>
           Hello, I'm Yomna
         </Text>
       </MotionItem>
       <MotionItem>
-        <Text as={"b"} fontSize={"5xl"}>
+        <Text as={"b"} fontSize={"3xl"}>
           A Mobile Apps Developer & Web Developer.
         </Text>
       </MotionItem>
@@ -48,19 +48,21 @@ function Summary() {
             isExternal
           >
             <Button
-              borderTopLeftRadius={"0"}
-              px={"6"}
-              py={"4"}
-              backgroundColor={"pinkish"}
+              px={"2"}
+              py={"2"}
+              backgroundColor={"black"}
               color={"white"}
               _hover={{
-                backgroundColor: "black",
+                backgroundColor: "pink",
+                color: "black",
               }}
             >
-              <FaArrowUp />
+              <FaArrowUp size={"14px"} />
             </Button>
           </Link>
-          <Text pl={"4"}>Let's talk</Text>
+          <Text pl={"4"} fontSize={"xl"}>
+            Let's talk
+          </Text>
         </Flex>
       </MotionItem>
       <MotionItem>
